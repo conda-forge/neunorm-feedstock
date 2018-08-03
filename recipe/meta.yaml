@@ -1,7 +1,7 @@
 {% set name = "NeuNorm" %}
-{% set version = "1.4.1" %}
+{% set version = "1.4.3" %}
 {% set file_ext = "tar.gz" %}
-{% set sha256 = "38643c52a2bca67311448aabe1e0d5ae08bbc50bf7f644b19e8820d6f91d2bdb" %}
+{% set sha256 = "12abf157bac4e5a52827921e019d6fa36f9cebfb1c89ef56ceff8866e67e0351" %}
 
 package:
   name: {{ name|lower }}
