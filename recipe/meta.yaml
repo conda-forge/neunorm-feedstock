@@ -1,7 +1,6 @@
 {% set name = "NeuNorm" %}
-{% set version = "1.4.3" %}
-{% set file_ext = "tar.gz" %}
-{% set sha256 = "12abf157bac4e5a52827921e019d6fa36f9cebfb1c89ef56ceff8866e67e0351" %}
+{% set version = "1.5.0" %}
+{% set sha256 = "cffd75e2c9a15389e67d15fc0cb137f7ea357323fbdb1b81a34162ed50cf6fc6" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +13,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -36,7 +35,7 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'Neutron Imaging Normalization Library'
+  summary: Neutron Imaging Normalization Library
   description: |
     NeuNorm is an open-source Python library that normalized neutron imaging measurements
   doc_url: http://neunorm.readthedocs.io/
