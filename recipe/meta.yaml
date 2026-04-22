@@ -1,6 +1,5 @@
 {% set name = "NeuNorm" %}
 {% set version = "1.4.3" %}
-{% set file_ext = "tar.gz" %}
 {% set sha256 = "12abf157bac4e5a52827921e019d6fa36f9cebfb1c89ef56ceff8866e67e0351" %}
 
 package:
@@ -8,26 +7,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - scipy
     - numpy
     - astropy
     - PIL
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - NeuNorm
 
